@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'department_list.dart';
 
 class login_page extends StatelessWidget {

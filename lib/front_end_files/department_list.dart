@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../pages/dialogue.dart';
+import 'dialogue.dart';
 
 class department_list extends StatefulWidget {
   const department_list({Key? key}) : super(key: key);
