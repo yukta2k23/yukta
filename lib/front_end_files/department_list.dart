@@ -119,70 +119,67 @@ class _department_listState extends State<department_list> {
                       const SizedBox(height: 25,),
 
                       /* Start - Departments list view */
-                      Positioned(
-                        bottom: 100,
-                        child: Container(
-                          height: MediaQuery.of(context).size.height - 220,
-                          width: MediaQuery.of(context).size.width,
+                      Container(
+                        height: MediaQuery.of(context).size.height - 220,
+                        width: MediaQuery.of(context).size.width,
 
-                          child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            itemCount: departments.length,
-                            itemBuilder: (BuildContext context, int index) =>
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15,right: 15,),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 100,
-                                        width: MediaQuery.of(context).size.width,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white54,
-                                            borderRadius: BorderRadius.circular(20)
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(6.0),
-                                          child: Container(
-                                            height: 100,
-                                            width: MediaQuery.of(context).size.width,
-                                            decoration: BoxDecoration(
-                                                gradient: LinearGradient(
-                                                    begin: Alignment.topLeft,
-                                                    end: Alignment.bottomRight,
-                                                    colors: [
-                                                      departments_color[index][0],
-                                                      departments_color[index][1],
-                                                    ]
-                                                ),
-                                                borderRadius: BorderRadius.circular(15)
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(15.0),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  Expanded(
-                                                    child: Text(departments[index],
-                                                      style: const TextStyle(
-                                                          fontSize: 23
-                                                      ),
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: departments.length,
+                          itemBuilder: (BuildContext context, int index) =>
+                              Padding(
+                                padding: const EdgeInsets.only(left: 15,right: 15,),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 100,
+                                      width: MediaQuery.of(context).size.width,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white54,
+                                          borderRadius: BorderRadius.circular(20)
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(6.0),
+                                        child: Container(
+                                          height: 100,
+                                          width: MediaQuery.of(context).size.width,
+                                          decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  begin: Alignment.topLeft,
+                                                  end: Alignment.bottomRight,
+                                                  colors: [
+                                                    departments_color[index][0],
+                                                    departments_color[index][1],
+                                                  ]
+                                              ),
+                                              borderRadius: BorderRadius.circular(15)
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(15.0),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: Text(departments[index],
+                                                    style: const TextStyle(
+                                                        fontSize: 23
                                                     ),
                                                   ),
+                                                ),
 
-                                                  Image.asset('images/${departments_icon[index]}.png',
-                                                    scale: .8,
-                                                  )
-                                                ],
-                                              ),
+                                                Image.asset('images/${departments_icon[index]}.png',
+                                                  scale: .8,
+                                                )
+                                              ],
                                             ),
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(height: 20,),
-                                    ],
-                                  ),
+                                    ),
+                                    const SizedBox(height: 20,),
+                                  ],
                                 ),
-                          ),
+                              ),
                         ),
                       ),
                       /* End - Departments list view */
