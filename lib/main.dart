@@ -11,7 +11,7 @@ Future<void> main() async{
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: events(),
+    home: department_list(),
     routes:{
       '/login_page' : (context) => const login_page() ,
       '/department_list' : (context) => const department_list()

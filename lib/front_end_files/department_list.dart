@@ -51,7 +51,7 @@ class _department_listState extends State<department_list> {
                 ),
               ),
             ),
-            /* Start - background image layer */
+            /* End - background image layer */
 
             /* Start - Transparency layer */
             Container(
@@ -75,9 +75,12 @@ class _department_listState extends State<department_list> {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
+
+                      /* Start - Banner */
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+
                           SizedBox(
                             height: 50,
                               child: Image.asset('images/Yuktha_logo.png')
@@ -94,7 +97,11 @@ class _department_listState extends State<department_list> {
                           ),
                         ],
                       ),
+                      /* End - Banner */
+
                       const SizedBox(height: 8,),
+
+                      /* Start - User name */
                       Row(
                         children: const [
                           SizedBox(width: 17,),
@@ -107,7 +114,11 @@ class _department_listState extends State<department_list> {
                           )
                         ],
                       ),
+                      /* End - User name */
+
                       const SizedBox(height: 25,),
+
+                      /* Start - Departments list view */
                       Positioned(
                         bottom: 100,
                         child: Container(
@@ -174,6 +185,8 @@ class _department_listState extends State<department_list> {
                           ),
                         ),
                       ),
+                      /* End - Departments list view */
+
                     ],
                   ),
                 )
