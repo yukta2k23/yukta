@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'department_list.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:yuktha2k23/back_end_files/google_sign_in_function.dart';
+
 
 class login_page extends StatelessWidget {
   const login_page({Key? key}) : super(key: key);
@@ -25,7 +27,7 @@ class login_page extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset("images/Yuktha_logo.png"),
-                  const SizedBox(height: 20,)
+                  const SizedBox(height: 50,)
                 ],
               ),
             ),
@@ -47,7 +49,10 @@ class login_page extends StatelessWidget {
                         ]
                     ),
                     child: MaterialButton(
-                      onPressed: (){
+                      onPressed: () async {
+
+                        /* Google */
+                        await google_sign_in_function(context) ;
                         Navigator.pushReplacementNamed(context, '/department_list') ;
                       },
                       child: Row(
@@ -65,7 +70,7 @@ class login_page extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 100,)
+                  const SizedBox(height: 70,)
                 ],
               ),
             ],

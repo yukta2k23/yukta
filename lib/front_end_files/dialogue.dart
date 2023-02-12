@@ -1,4 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:yuktha2k23/front_end_files/login_page.dart';
 
 Future<void> sign_out_dialogue(BuildContext context) async{
   return showDialog<void>(
@@ -14,8 +20,10 @@ Future<void> sign_out_dialogue(BuildContext context) async{
             content: const Text("Are you sure to SignOut?"),
             actions: [
               TextButton(
-                  onPressed: (){
-                    Navigator.pushReplacementNamed(context, '/login_page');
+                  onPressed: () async {
+                    await GoogleSignIn().signOut() ;
+                    await FirebaseAuth.instance.signOut() ;
+                    Navigator.pushNamedAndRemoveUntil(context, '/login_page', (route) => false) ;
                   },
                   child: const Text('Yes')
               ),

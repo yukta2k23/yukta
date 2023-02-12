@@ -1,7 +1,8 @@
-// ignore_for_file: camel_case_types
+// ignore_for_file: camel_case_types, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:yuktha2k23/front_end_files/events.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:yuktha2k23/front_end_files/events_category.dart';
 import 'dialogue.dart';
 
 class department_list extends StatefulWidget {
@@ -94,7 +95,7 @@ class _department_listState extends State<department_list> {
                               onPressed: () {
                                 sign_out_dialogue(context) ;
                               },
-                              icon: Image.asset('images/exit.png',),
+                              icon: Icon(Icons.exit_to_app,color: Colors.white,),
                               tooltip: "Sign Out",
                             ),
                           ),
@@ -140,7 +141,7 @@ class _department_listState extends State<department_list> {
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (Context) {
-                                                return events(department_name: departments[index]) ;
+                                                return events_category(department_name: departments[index]) ;
                                               }
                                           )
                                         ) ;
@@ -209,26 +210,44 @@ class _department_listState extends State<department_list> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 70,
-                    margin: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurpleAccent,
-                      borderRadius: BorderRadius.circular(20),
-                      /*
-                      image:DecorationImage(
-                        image: AssetImage('images/image 1.png') ,
-                        fit:BoxFit.fitWidth,
-                      ),
-                       */
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 500,
-                          color: Colors.purple,
-                          blurStyle: BlurStyle.outer
+                  RawMaterialButton(
+                    onPressed: () async => _launchUrl(),
+                  child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 70,
+                      margin: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurpleAccent,
+                        borderRadius: BorderRadius.circular(20),
+                        /*
+                        image:DecorationImage(
+                          image: AssetImage('images/image 1.png') ,
+                          fit:BoxFit.fitWidth,
                         ),
-                      ]
+                         */
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 500,
+                            color: Colors.purple,
+                            blurStyle: BlurStyle.outer
+                          ),
+                        ]
+                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.double_arrow,
+                          size: 40,
+                        ),
+                        SizedBox(width: 8,),
+                        Text('Register Now To Participate',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25
+                          ),
+                        ),
+                      ],
+                    ),
                     ),
                   ),
                 ],
@@ -238,5 +257,14 @@ class _department_listState extends State<department_list> {
         ),
       ),
     );
+  }
+}
+
+/* Register to participate */
+final Uri _url = Uri.parse('http://www.psgitech.ac.in/');
+
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
   }
 }
