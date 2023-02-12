@@ -1,4 +1,7 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
+import 'package:yuktha2k23/front_end_files/events.dart';
 import 'dialogue.dart';
 
 class department_list extends StatefulWidget {
@@ -120,7 +123,7 @@ class _department_listState extends State<department_list> {
 
                       /* Start - Departments list view */
                       Container(
-                        height: MediaQuery.of(context).size.height - 220,
+                        height: MediaQuery.of(context).size.height - 250,
                         width: MediaQuery.of(context).size.width,
 
                         child: ListView.builder(
@@ -131,46 +134,59 @@ class _department_listState extends State<department_list> {
                                 padding: const EdgeInsets.only(left: 15,right: 15,),
                                 child: Column(
                                   children: [
-                                    Container(
-                                      height: 100,
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white54,
-                                          borderRadius: BorderRadius.circular(20)
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(6.0),
-                                        child: Container(
-                                          height: 100,
-                                          width: MediaQuery.of(context).size.width,
-                                          decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                  begin: Alignment.topLeft,
-                                                  end: Alignment.bottomRight,
-                                                  colors: [
-                                                    departments_color[index][0],
-                                                    departments_color[index][1],
-                                                  ]
-                                              ),
-                                              borderRadius: BorderRadius.circular(15)
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(15.0),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Expanded(
-                                                  child: Text(departments[index],
-                                                    style: const TextStyle(
-                                                        fontSize: 23
+                                    RawMaterialButton(
+
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (Context) {
+                                                return events(department_name: departments[index]) ;
+                                              }
+                                          )
+                                        ) ;
+                                      },
+
+                                      child: Container(
+                                        height: 100,
+                                        width: MediaQuery.of(context).size.width,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white54,
+                                            borderRadius: BorderRadius.circular(20)
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(6.0),
+                                          child: Container(
+                                            height: 100,
+                                            width: MediaQuery.of(context).size.width,
+                                            decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                    begin: Alignment.topLeft,
+                                                    end: Alignment.bottomRight,
+                                                    colors: [
+                                                      departments_color[index][0],
+                                                      departments_color[index][1],
+                                                    ]
+                                                ),
+                                                borderRadius: BorderRadius.circular(15)
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(15.0),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(departments[index],
+                                                      style: const TextStyle(
+                                                          fontSize: 23
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
 
-                                                Image.asset('images/${departments_icon[index]}.png',
-                                                  scale: .8,
-                                                )
-                                              ],
+                                                  Image.asset('images/${departments_icon[index]}.png',
+                                                    scale: .8,
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -187,6 +203,36 @@ class _department_listState extends State<department_list> {
                     ],
                   ),
                 )
+            ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 70,
+                    margin: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurpleAccent,
+                      borderRadius: BorderRadius.circular(20),
+                      /*
+                      image:DecorationImage(
+                        image: AssetImage('images/image 1.png') ,
+                        fit:BoxFit.fitWidth,
+                      ),
+                       */
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 500,
+                          color: Colors.purple,
+                          blurStyle: BlurStyle.outer
+                        ),
+                      ]
+                    ),
+                  ),
+                ],
+              ),
             ),
           ]
         ),
