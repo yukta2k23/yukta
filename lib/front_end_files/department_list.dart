@@ -1,9 +1,12 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yuktha2k23/front_end_files/events_category.dart';
 import 'dialogue.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class department_list extends StatefulWidget {
   const department_list({Key? key}) : super(key: key);
@@ -34,6 +37,8 @@ class _department_listState extends State<department_list> {
     [const Color.fromARGB(255, 255, 213, 105),const Color.fromARGB(255, 239, 203, 187)],
     [const Color.fromARGB(255, 206, 165, 246),const Color.fromARGB(255, 195, 187, 239)]
   ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -107,10 +112,10 @@ class _department_listState extends State<department_list> {
 
                       /* Start - User name */
                       Row(
-                        children: const [
-                          SizedBox(width: 17,),
-                          Text("Hello \$name",
-                            style: TextStyle(
+                        children: [
+                          const SizedBox(width: 17,),
+                          Text("Hello  ${FirebaseAuth.instance.currentUser!.displayName}",
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
                               color: Colors.white
@@ -268,3 +273,4 @@ Future<void> _launchUrl() async {
     throw Exception('Could not launch $_url');
   }
 }
+

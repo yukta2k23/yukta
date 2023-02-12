@@ -17,7 +17,7 @@ Future<UserCredential> google_sign_in_function(BuildContext context) async {
     accessToken: googleAuth?.accessToken,
     idToken: googleAuth?.idToken,
   );
-
+  
   // Once signed in, return the UserCredential
   UserCredential usr = await FirebaseAuth.instance.signInWithCredential(credential) ;
   return usr ;
