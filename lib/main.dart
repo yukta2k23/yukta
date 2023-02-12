@@ -12,7 +12,7 @@ Future<void> main() async{
   runApp(MaterialApp(
     title: 'Yukta',
     debugShowCheckedModeBanner: false,
-    home: login_check(),
+    home: const login_check(),
 
     routes:{
       '/login_page' : (context) => const login_page() ,
