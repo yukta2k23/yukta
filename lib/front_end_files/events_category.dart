@@ -109,9 +109,12 @@ class events_category extends StatelessWidget {
                   SizedBox(height: 10,) ,
 
                   Container(
+
+                    clipBehavior: Clip.hardEdge,
+
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height - 200,
-                    margin: EdgeInsets.all(8) ,
+                    margin: const EdgeInsets.all(8) ,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -128,7 +131,7 @@ class events_category extends StatelessWidget {
                     ),
 
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8 , top: 8 ),
+                      padding: const EdgeInsets.all(8),
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: events_category_category.length,
@@ -153,6 +156,7 @@ class events_category extends StatelessWidget {
                                           Colors.blue.withOpacity(.5)
                                         ]
                                     ),
+                                    border: Border.all()
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -178,8 +182,8 @@ class events_category extends StatelessWidget {
                                             itemBuilder: (BuildContext context, int index1) =>
                                                 Row(
                                                   children: [
-                                                    RawMaterialButton(
-                                                      onPressed: () {
+                                                    InkWell(
+                                                      onTap: () {
                                                         Navigator.of(context).push(
                                                             MaterialPageRoute(
                                                                 builder: (Context) {

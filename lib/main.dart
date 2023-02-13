@@ -32,7 +32,7 @@ class login_check extends StatelessWidget {
           builder: (context,snapshot){
 
             if(snapshot.connectionState == ConnectionState.waiting){
-              return const Center(child: CircularProgressIndicator(color: Colors.red,),) ;
+              return const Center(child: CircularProgressIndicator(),) ;
             }
 
             else if(snapshot.hasError){

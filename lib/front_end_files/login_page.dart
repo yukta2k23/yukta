@@ -1,5 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:yuktha2k23/back_end_files/google_sign_in_function.dart';
 
 

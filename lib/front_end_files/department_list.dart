@@ -19,7 +19,7 @@ class _department_listState extends State<department_list> {
 
   /* Department details */
   late var departments = [
-    "Computer Science and Enginnering",
+    "Computer Science and Engineering",
     "Electronics and Communication Engineering",
     "Electrical and Electronics Engineering",
     "Civil Engineering",
@@ -81,7 +81,7 @@ class _department_listState extends State<department_list> {
 
             SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     children: [
 
@@ -94,14 +94,11 @@ class _department_listState extends State<department_list> {
                             height: 50,
                               child: Image.asset('images/Yuktha_logo.png')
                           ) ,
-                          SizedBox(
-                            height: 50,
-                            child: IconButton(
-                              onPressed: () {
-                                sign_out_dialogue(context) ;
-                              },
-                              icon: Icon(Icons.exit_to_app,color: Colors.white,),
-                              tooltip: "Sign Out",
+                          IconButton(
+                            onPressed: () =>  sign_out_dialogue(context),
+                            icon: CircleAvatar(
+                              child: Image.network('${FirebaseAuth.instance.currentUser?.photoURL}',
+                              ),
                             ),
                           ),
                         ],
@@ -140,9 +137,10 @@ class _department_listState extends State<department_list> {
                                 padding: const EdgeInsets.only(left: 15,right: 15,),
                                 child: Column(
                                   children: [
-                                    RawMaterialButton(
 
-                                      onPressed: () {
+                                    InkWell(
+
+                                      onTap: () {
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (Context) {
