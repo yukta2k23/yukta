@@ -214,7 +214,7 @@ class _department_listState extends State<department_list> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   RawMaterialButton(
-                    onPressed: () async => _launchUrl(),
+                    onPressed: () async =>_launchUrl(),
                   child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: 70,

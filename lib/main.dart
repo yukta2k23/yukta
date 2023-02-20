@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yuktha2k23/front_end_files/department_list.dart';
+import 'package:yuktha2k23/front_end_files/eventtype.dart';
 import 'package:yuktha2k23/front_end_files/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -12,11 +13,13 @@ Future<void> main() async{
   runApp(MaterialApp(
     title: 'Yukta',
     debugShowCheckedModeBanner: false,
-    home: const login_check(),
+    home: const login_page(),
+    //home: const login_check(),
 
     routes:{
       '/login_page' : (context) => const login_page() ,
-      '/department_list' : (context) => const department_list()
+      '/department_list' : (context) => const department_list(),
+      '/eventtype':(context) => const eventtype()
     },
   ));
 }
@@ -44,7 +47,9 @@ class login_check extends StatelessWidget {
             }
 
             else{
+              print("ssss");
               return const login_page() ;
+              //return const eventtype();
             }
           }
       ),
