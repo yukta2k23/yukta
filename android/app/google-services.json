@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "448340097391",
-    "project_id": "yukta2k23-3cbed",
-    "storage_bucket": "yukta2k23-3cbed.appspot.com"
+    "project_number": "440191976726",
+    "project_id": "yuktha-2k23-751c3",
+    "storage_bucket": "yuktha-2k23-751c3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:448340097391:android:f99c13fcf0aadfbc5b109a",
+        "mobilesdk_app_id": "1:440191976726:android:7dc3e69103e4c2167ebc37",
         "android_client_info": {
           "package_name": "com.example.yuktha2k23"
         }
       },
       "oauth_client": [
         {
-          "client_id": "448340097391-o35s2kofhqar7p0ab6m5r7qogumuucq0.apps.googleusercontent.com",
+          "client_id": "440191976726-c5tsei74ak0uitbr40aosf8im40ikri5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.yuktha2k23",
-            "certificate_hash": "dcb3d67e9ba9afe098eaf591833b8e779ee2892a"
+            "certificate_hash": "f0f5c0d8e1afd6e7de3316459a53a73be1cd606b"
           }
         },
         {
-          "client_id": "448340097391-nap7n66arf23kceu6vefaqaj2bnpf59e.apps.googleusercontent.com",
+          "client_id": "440191976726-7sc8lcq2o8tp16rmh20s8i9lg8dh99p2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDs91mtIkQKz4hkEgO9gP09OXERrjXvRnU"
+          "current_key": "AIzaSyDQwC9h6dqf8tNWPq_WYBGR_SypzCeuecI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "448340097391-nap7n66arf23kceu6vefaqaj2bnpf59e.apps.googleusercontent.com",
+              "client_id": "440191976726-7sc8lcq2o8tp16rmh20s8i9lg8dh99p2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
