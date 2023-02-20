@@ -18,6 +18,8 @@ class _eventtypeState extends State<eventtype> {
   late var basevents = [
     "Technical","Non Technical","Workshops"
   ] ;
+  late var basevents_icons=["tech","nontech","work"
+  ];
   var event_color = [
     [const Color.fromARGB(255, 194, 243, 250),const Color.fromARGB(255, 187, 211, 239)],
     [const Color.fromARGB(255, 105, 177, 255),const Color.fromARGB(255, 187, 220, 239)],
@@ -167,6 +169,9 @@ class _eventtypeState extends State<eventtype> {
                                                         ),
                                                       ),
                                                     ),
+                                                    Image.asset('images/${basevents_icons[index]}.png',
+                                                      scale: .8,
+                                                    )
                                                   ],
                                                 ),
                                               ),

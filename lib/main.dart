@@ -47,9 +47,8 @@ class login_check extends StatelessWidget {
             }
 
             else{
-              print("ssss");
+              //print("ssss");
               return const login_page() ;
-              //return const eventtype();
             }
           }
       ),
