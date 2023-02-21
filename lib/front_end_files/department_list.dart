@@ -4,18 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:yuktha2k23/front_end_files/announcements.dart';
 import 'package:yuktha2k23/front_end_files/events_category.dart';
 import 'dialogue.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class department_list extends StatefulWidget {
-  const department_list({Key? key}) : super(key: key);
-
-  @override
-  State<department_list> createState() => _department_listState();
-}
-
-class _department_listState extends State<department_list> {
+class department_list extends StatelessWidget {
+  String b_event;
+  department_list({Key? key, required this.b_event}) : super(key: key);
 
   /* Department details */
   late var departments = [
@@ -38,13 +34,11 @@ class _department_listState extends State<department_list> {
     [const Color.fromARGB(255, 206, 165, 246),const Color.fromARGB(255, 195, 187, 239)]
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
 
-    return WillPopScope(
-      onWillPop: () => exit_dialogue(context) ,
+    return SafeArea(
+      //onWillPop: () => exit_dialogue(context) ,
       child: Scaffold(
         body: Stack(
           children: <Widget>[
@@ -94,6 +88,29 @@ class _department_listState extends State<department_list> {
                             height: 50,
                               child: Image.asset('images/Yuktha_logo.png')
                           ) ,
+                        Spacer(),
+                        Spacer(),
+                        Spacer(),
+                        Spacer(),
+                        Spacer(),
+                        Spacer(),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (Context) {
+                                        return announcement();
+                                        //return events_category(department_name: departments[index],b_event:base_event) ;
+                                      }
+                                  )
+                              );
+                            }  ,
+                            icon: CircleAvatar(
+                              child: Icon(Icons.add_alert),
+                            ),tooltip: "announments",
+                        ),
+
+                          Spacer(),
                           IconButton(
                             onPressed: () =>  sign_out_dialogue(context),
                             icon: CircleAvatar(
@@ -144,7 +161,8 @@ class _department_listState extends State<department_list> {
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (Context) {
-                                                return events_category(department_name: departments[index]) ;
+                                                return events_category(department_name: departments[index],bas_event:b_event);
+                                                //return events_category(department_name: departments[index],b_event:base_event) ;
                                               }
                                           )
                                         ) ;
@@ -246,7 +264,7 @@ class _department_listState extends State<department_list> {
                         Text('Register Now To Participate',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 25
+                            fontSize: 20
                           ),
                         ),
                       ],

@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 Future<UserCredential> google_sign_in_function(BuildContext context) async {
 
+  print("came in  sdcvdsv8y0suinmpoooooiujo[980-===========================");
   // Trigger the authentication flow
   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -20,5 +21,6 @@ Future<UserCredential> google_sign_in_function(BuildContext context) async {
   
   // Once signed in, return the UserCredential
   UserCredential usr = await FirebaseAuth.instance.signInWithCredential(credential) ;
+  print("${usr}==============================================") ;
   return usr ;
 }

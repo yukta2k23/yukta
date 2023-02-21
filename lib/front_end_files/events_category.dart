@@ -3,23 +3,43 @@
 import 'package:flutter/material.dart';
 import 'events.dart';
 
-class events_category extends StatelessWidget {
+class events_category extends StatefulWidget {
   String department_name ;
-  events_category({Key? key, required this.department_name}) : super(key: key);
+  String bas_event;
+  events_category({Key? key,required this.bas_event, required this.department_name}) : super(key: key);
 
+  @override
+  State<events_category> createState() => _events_categoryState();
+}
+
+class _events_categoryState extends State<events_category> {
   /* events_category category */
   late var events_category_category = [
     'Technical Events',
     'Non-Technical Events',
     'Workshops'
-  ] ;
+  ];
+
+  List<String> deptdrop=<String>
+  ["ALL","CSE","ECE","EEE","CIVIL","MECH"];
+  String defvaldept="ALL";
+
+  List<String> eventty=<String>
+  ["Technical","Non Technical","Workshops","Flagship ","All"];
+  //String defvaldept="ALL";
+
+  String defvalevent="All";
 
   /* Technical events_category list */
   late var technical_events_category = [
     'Coding',
-    'Debugging'
-  ] ;
-
+    'Debugging',
+    'codeathon',
+    'models',
+    'ideathon','hackathon'
+  ];
+  var dept="ALL";
+  var deptgiven="";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,28 +110,173 @@ class events_category extends StatelessWidget {
                   const SizedBox(height: 8,),
 
                   /* Start - which department events_category */
-                  Row(
-                    children: [
-                      const SizedBox(width: 17,),
-                      Expanded(
-                        child: Text('Department of $department_name' ,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Colors.white
-                          ),
+                  Container(
+                    height: 70,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            //const SizedBox(width: 17,),
+                            Expanded(
+                              //department name
+                              child: Text('Department of department name' ,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.white
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                        SizedBox(height:20 ,),
+                        Row(
+                          children: [
+                            //const SizedBox(width: 17,),
+                            Expanded(
+                              //department name
+                              child: Center(
+                                child: Text('Technical events ' ,//tech nontech
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.white
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  )
                   /* End - which department events_category */
+                 //,
+                  ,Spacer() ,
+               Row(
+                    children: [
 
-                  SizedBox(height: 10,) ,
+                      Container(
+                        height: 30,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                          color:Colors.yellow,),
+                        child: DropdownButton<String>
+                        (onChanged: (String? newValue)
+                        {
+                          setState(() {
+                            defvaldept=newValue!;
+                          });
+                        },
+                          value:defvaldept,
+                          items: deptdrop.map<DropdownMenuItem<String>>
+                            ((String value)
+                          {
+                            return DropdownMenuItem<String>(
+                              value:value,
+                              child: Text(value),
+                            );
+                          },
+                          ).toList(),
+                          ),
+                      ),
+                      SizedBox(width: 160,),
+
+                      Container(
+                        height: 30,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                          color:Colors.yellow,),
+                        child: DropdownButton<String>
+                          (onChanged: (String? newValue)
+                        {
+                          setState(() {
+                            defvalevent=newValue!;
+                          });
+                        },
+                          value:defvalevent,
+                          items: eventty.map<DropdownMenuItem<String>>
+                            ((String value)
+                          {
+                            return DropdownMenuItem<String>(
+                              value:value,
+                              child: Text(value),
+                            );
+                          },
+                          ).toList(),
+                        ),
+                      ),
+
+
+                    ],
+                  )
+                  ,SizedBox(height: 20,),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child:Container(height: MediaQuery.of(context).size.height-260,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlueAccent,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: ListView.builder(
+                            //scrollDirection:Axis.vertical,
+                           // itemCount: 6,
+                            itemBuilder:(BuildContext context,int index) {
+                              return Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: Row(
+                                    children: [
+                                      RawMaterialButton(
+                                        onPressed: (){
+                                        Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (Context) {
+                                          return events(department_name: widget.department_name , category: events_category_category[index], event_name: technical_events_category[index]) ;
+
+                                                              }
+                                        )
+                                        );
+                                        }
+                                        ,
+                                        child: Container(
+                                          //color: Colors.purple,
+                                            height: 140,
+                                            width: MediaQuery
+                                                .of(context)
+                                                .size
+                                                .width-60,
+
+
+                                            //eventtype [index] if only event selected
+                                          //department selected then dep name eventtype [index]
+                                            child: Center(child: Text("${technical_events_category[index]}",
+                                              style:TextStyle(fontWeight: FontWeight.bold,fontSize: 20) ,)),
+
+                                          decoration:BoxDecoration(
+                                          color: Colors.purple,
+                                          borderRadius: BorderRadius.circular(20)
+                                        ),
+                                        ),
+                                      ),
+                                      SizedBox(height: 10,)
+                                    ],
+                                  )
+
+                              );
+                            }
+                            //length is based on the list from database
+                          ,itemCount: technical_events_category.length,
+                        )
+                  )
+                  )
+                  )
+/*
+
 
                   Container(
-
                     clipBehavior: Clip.hardEdge,
-
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height - 200,
                     margin: const EdgeInsets.all(8) ,
@@ -187,7 +352,7 @@ class events_category extends StatelessWidget {
                                                         Navigator.of(context).push(
                                                             MaterialPageRoute(
                                                                 builder: (Context) {
-                                                                  return events(department_name: department_name , category: events_category_category[index1], event_name: technical_events_category[index1]) ;
+                                                                  return events(department_name: widget.department_name , category: events_category_category[index1], event_name: technical_events_category[index1]) ;
                                                                 }
                                                             )
                                                         ) ;
@@ -224,7 +389,7 @@ class events_category extends StatelessWidget {
                       ),
                     ),
 
-                  ),
+                  ),*/
 
                 ],
               ),
@@ -234,5 +399,11 @@ class events_category extends StatelessWidget {
         ],
       ),
     ) ;
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
   }
 }

@@ -16,14 +16,15 @@ class eventtype extends StatefulWidget {
 class _eventtypeState extends State<eventtype> {
   @override
   late var basevents = [
-    "Technical","Non Technical","Workshops"
+    "Technical","Non Technical","Workshops","Flagship"
   ] ;
-  late var basevents_icons=["tech","nontech","work"
+  late var basevents_icons=["tech","nontech","work","Flag"
   ];
   var event_color = [
     [const Color.fromARGB(255, 194, 243, 250),const Color.fromARGB(255, 187, 211, 239)],
     [const Color.fromARGB(255, 105, 177, 255),const Color.fromARGB(255, 187, 220, 239)],
     [const Color.fromARGB(255, 255, 213, 105),const Color.fromARGB(255, 239, 203, 187)],
+    [const Color.fromARGB(255, 117, 255, 105),const Color.fromARGB(255, 95, 152, 54)]
   ];
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -94,6 +95,7 @@ class _eventtypeState extends State<eventtype> {
                         Row(
                           children: [
                             const SizedBox(width: 17,),
+                            //Text("hello ramkumar",
                             Text("Hello  ${FirebaseAuth.instance.currentUser!.displayName}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -120,7 +122,7 @@ class _eventtypeState extends State<eventtype> {
                                   padding: const EdgeInsets.only(left: 15,right: 15,),
                                   child: Column(
                                     children: [
-                                      const SizedBox(height: 40,),
+                                      //const SizedBox(height: 40,),
 
                                       InkWell(
 
@@ -128,7 +130,8 @@ class _eventtypeState extends State<eventtype> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (Context) {
-                                                    return department_list();
+                                                    return department_list(b_event:basevents[index]);
+                                                   //return department_list(base_event:basevents[index]);
                                                   }
                                               )
                                           ) ;
@@ -144,7 +147,7 @@ class _eventtypeState extends State<eventtype> {
                                           child: Padding(
                                             padding: const EdgeInsets.all(6.0),
                                             child: Container(
-                                              height: (MediaQuery.of(context).size.height-200)/3,
+                                              height: (MediaQuery.of(context).size.height-200)/4,
                                               width: MediaQuery.of(context).size.width,
                                               decoration: BoxDecoration(
                                                   gradient: LinearGradient(
@@ -169,8 +172,10 @@ class _eventtypeState extends State<eventtype> {
                                                         ),
                                                       ),
                                                     ),
+                                                    Container(height:60,
+                                                        width:80,child:
                                                     Image.asset('images/${basevents_icons[index]}.png',
-                                                      scale: .8,
+                                                      scale: .8,)
                                                     )
                                                   ],
                                                 ),
@@ -219,20 +224,23 @@ class _eventtypeState extends State<eventtype> {
                               ),
                             ]
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.double_arrow,
-                              size: 40,
-                            ),
-                            SizedBox(width: 8,),
-                            Text('Register Now To Participate',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25
+                        child: Container(
+                          width:MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(Icons.double_arrow,
+                                size: 20,
                               ),
-                            ),
-                          ],
+                              SizedBox(width: 8,),
+                              Text('Register Now To Participate',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

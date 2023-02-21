@@ -55,8 +55,9 @@ class login_page extends StatelessWidget {
                       onPressed: () async {
 
                         /* Google */
-                        print("entered this");
+                        print("\n entered this");
                         await google_sign_in_function(context) ;
+                        //Navigator.pushNamed(context, '/eventtype');
                         Navigator.pushReplacementNamed(context,'/eventtype') ;
                         //checking for a new page basic event types
                         //tech,nontech,worskshops

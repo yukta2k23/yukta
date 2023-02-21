@@ -4,6 +4,8 @@ import 'package:yuktha2k23/front_end_files/department_list.dart';
 import 'package:yuktha2k23/front_end_files/eventtype.dart';
 import 'package:yuktha2k23/front_end_files/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:yuktha2k23/front_end_files/rive_demo.dart';
+import 'package:yuktha2k23/front_end_files/tech_eve.dart';
 
 Future<void> main() async{
 
@@ -18,7 +20,7 @@ Future<void> main() async{
 
     routes:{
       '/login_page' : (context) => const login_page() ,
-      '/department_list' : (context) => const department_list(),
+      '/department_list' : (context) => department_list(b_event: "null",),
       '/eventtype':(context) => const eventtype()
     },
   ));
@@ -43,12 +45,15 @@ class login_check extends StatelessWidget {
             }
 
             else if(snapshot.hasData){
-              return const department_list() ;
+              //return const login_page();
+              return eventtype() ;
             }
 
             else{
+              //print("here");
               //print("ssss");
-              return const login_page() ;
+              //return department_list(b_event: "null");
+              return login_page();
             }
           }
       ),
