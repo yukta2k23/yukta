@@ -45,7 +45,6 @@ class _events_categoryState extends State<events_category> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-
           /* Start - background image layer */
           Container(
             height: MediaQuery.of(context).size.height ,
@@ -238,8 +237,7 @@ class _events_categoryState extends State<events_category> {
                                                               }
                                         )
                                         );
-                                        }
-                                        ,
+                                        },
                                         child: Container(
                                           //color: Colors.purple,
                                             height: 140,

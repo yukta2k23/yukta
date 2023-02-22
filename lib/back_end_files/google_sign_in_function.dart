@@ -6,7 +6,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 Future<UserCredential> google_sign_in_function(BuildContext context) async {
 
-  print("came in  sdcvdsv8y0suinmpoooooiujo[980-===========================");
   // Trigger the authentication flow
   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
